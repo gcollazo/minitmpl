@@ -1,5 +1,5 @@
 {
-  "name": "@gcollazo/minitmpl",
+  "name": "minitmpl",
   "version": "0.1.0",
   "description": "Minimal pure TypeScript template renderer with loud failures for missing variables. Built for LLM prompt assembly.",
   "keywords": [
@@ -30,9 +30,6 @@
     "typecheck": "tsc --noEmit",
     "playground:build": "bun build docs/index.html --outdir playground-dist --minify",
     "dev": "bun --hot docs/server.ts"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devDependencies": {
     "@types/bun": "latest",

@@ -5,7 +5,7 @@ Minimal, pure TypeScript template renderer with compile-time safety for missing 
 Substitutes `{{name}}` placeholders in a string using values from a context object. Built for assembling LLM prompt strings, where a silently-empty `{{user_question}}` wastes tokens and produces garbage output. Missing variables are caught at compile time — if TypeScript is happy, every placeholder is covered.
 
 ```ts
-import { render, MissingVariableError } from "@gcollazo/minitmpl";
+import { render, MissingVariableError } from "minitmpl";
 
 // ✅ all placeholders satisfied — extra keys are fine
 render("Hello, {{name}}!", { name: "world", extra: "ignored" });
@@ -41,17 +41,17 @@ Most templating libraries silently substitute missing variables with an empty st
 ## Install
 
 ```sh
-npm install @gcollazo/minitmpl
+npm install minitmpl
 # or
-bun add @gcollazo/minitmpl
+bun add minitmpl
 # or
-pnpm add @gcollazo/minitmpl
+pnpm add minitmpl
 ```
 
 ## Quick start
 
 ```typescript
-import { render } from "@gcollazo/minitmpl";
+import { render } from "minitmpl";
 
 // const-bound template — literal type preserved, no annotation needed
 const greeting = "Hello, {{name}}!";
@@ -134,7 +134,7 @@ class MissingVariableError extends Error {
 If your template is assembled at runtime (not a string literal), TypeScript cannot statically check the placeholder keys. Cast explicitly to signal the intent — a `MissingVariableError` will still be thrown at runtime if a key is absent:
 
 ```typescript
-import { render, MissingVariableError, type ContextValue } from "@gcollazo/minitmpl";
+import { render, MissingVariableError, type ContextValue } from "minitmpl";
 
 const tmpl: string = getTemplateFromSomewhere();
 try {
@@ -148,7 +148,7 @@ try {
 
 ## Security
 
-`@gcollazo/minitmpl` performs **raw** string substitution. The rendered output is **not** escaped for any execution context. Do not pass the output directly into any of the following without an appropriate escaper at that boundary:
+`minitmpl` performs **raw** string substitution. The rendered output is **not** escaped for any execution context. Do not pass the output directly into any of the following without an appropriate escaper at that boundary:
 
 - **HTML / DOM** — XSS risk; use a dedicated HTML-escaping library
 - **SQL** — SQL injection risk; use parameterized queries
