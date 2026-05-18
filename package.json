@@ -1,6 +1,6 @@
 {
   "name": "minitmpl",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Minimal pure TypeScript template renderer with loud failures for missing variables. Built for LLM prompt assembly.",
   "keywords": [
     "template",
