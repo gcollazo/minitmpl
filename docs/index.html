@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@gcollazo/minitmpl playground</title>
+    <link rel="stylesheet" href="./playground.css" />
+  </head>
+  <body>
+    <header>
+      <h1>@gcollazo/minitmpl playground</h1>
+      <p class="sub">
+        Edit the template and context, then click <em>Render</em>. See the
+        <a href="https://github.com/gcollazo/minitmpl#readme" target="_blank" rel="noopener">README</a> for the syntax rules.
+      </p>
+    </header>
+
+    <section class="examples">
+      <label for="example">Load example:</label>
+      <select id="example">
+        <option value="">— choose —</option>
+        <option value="hello">Hello, name</option>
+        <option value="multi">Multiple variables</option>
+        <option value="fn">Function value</option>
+        <option value="escape">Escape syntax</option>
+        <option value="whitespace">Whitespace in braces</option>
+      </select>
+    </section>
+
+    <main>
+      <section class="panel">
+        <h2>Template</h2>
+        <p class="hint">Plain text. <code>{{name}}</code> is a placeholder. <code>{{{name}}}</code> escapes to the literal <code>{{name}}</code>.</p>
+        <textarea id="template" spellcheck="false" rows="8"></textarea>
+      </section>
+
+      <section class="panel">
+        <h2>Context</h2>
+        <p class="hint">A JavaScript object literal. Values must be strings or zero-arg functions returning strings.</p>
+        <textarea id="context" spellcheck="false" rows="8"></textarea>
+      </section>
+
+      <section class="panel options">
+        <button id="render">Render</button>
+      </section>
+
+      <section class="panel full">
+        <h2>Render call</h2>
+        <p class="hint">The exact <code>render(...)</code> invocation for the current inputs.</p>
+        <pre id="call" class="output call"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Output</h2>
+        <pre id="output" class="output"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Errors</h2>
+        <pre id="log" class="log"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="./playground.ts"></script>
+  </body>
+</html>
