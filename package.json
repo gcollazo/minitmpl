@@ -31,6 +31,9 @@
     "playground:build": "bun build docs/index.html --outdir playground-dist --minify",
     "dev": "bun --hot docs/server.ts"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "typescript": "^5.6.0"
