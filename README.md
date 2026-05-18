@@ -30,13 +30,12 @@ Most templating libraries silently substitute missing variables with an empty st
 
 ## Requirements
 
-`minitmpl` ships as pure TypeScript source. Your toolchain must be able to consume `.ts` files directly:
+`minitmpl` is a TypeScript-only package — the point is compile-time type checking. It ships as `.ts` source and requires a runtime that can execute TypeScript directly:
 
 - **Bun** — native support
 - **Deno** — native support
-- **Vite / esbuild / Rollup** — native support
 - **Node.js ≥ 22.6** — with `--experimental-strip-types`
-- **ts-node / tsx** — with the appropriate loader
+- **Node.js (any version)** — with `tsx` or `ts-node`
 
 ## Install
 
